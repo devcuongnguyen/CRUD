@@ -37,7 +37,7 @@ class Version extends Command
         $this->line('');
 
         $this->comment('### BACKPACK VERSION:');
-        $this->line(\PackageVersions\Versions::getVersion('hacoidev/crud'));
+        $this->line(\PackageVersions\Versions::getVersion('devcuongnguyen/crud'));
         $this->line('');
     }
 
@@ -59,7 +59,7 @@ class Version extends Command
         });
 
         // executes after the command finishes
-        if (! $process->isSuccessful()) {
+        if (!$process->isSuccessful()) {
             throw new ProcessFailedException($process);
         }
     }

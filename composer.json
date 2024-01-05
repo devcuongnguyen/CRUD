@@ -1,5 +1,5 @@
 {
-    "name": "hacoidev/crud",
+    "name": "devcuongnguyen/crud",
     "type": "library",
     "description": "Quickly build an admin interfaces using Laravel, CoreUI, Bootstrap and jQuery.",
     "keywords": [
@@ -55,7 +55,9 @@
         "psr-4": {
             "Backpack\\CRUD\\Tests\\": "tests"
         },
-        "files": ["src/helpers.php"],
+        "files": [
+            "src/helpers.php"
+        ],
         "exclude-from-classmap": [
             "**/config"
         ]

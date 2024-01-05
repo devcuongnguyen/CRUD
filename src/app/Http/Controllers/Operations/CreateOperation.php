@@ -15,15 +15,15 @@ trait CreateOperation
      */
     protected function setupCreateRoutes($segment, $routeName, $controller)
     {
-        Route::get($segment.'/create', [
-            'as'        => $routeName.'.create',
-            'uses'      => $controller.'@create',
+        Route::get($segment . '/create', [
+            'as' => $routeName . '.create',
+            'uses' => $controller . '@create',
             'operation' => 'create',
         ]);
 
         Route::post($segment, [
-            'as'        => $routeName.'.store',
-            'uses'      => $controller.'@store',
+            'as' => $routeName . '.store',
+            'uses' => $controller . '@store',
             'operation' => 'create',
         ]);
     }
@@ -57,9 +57,9 @@ trait CreateOperation
         // prepare the fields you need to show
         $this->data['crud'] = $this->crud;
         $this->data['saveAction'] = $this->crud->getSaveAction();
-        $this->data['title'] = $this->crud->getTitle() ?? trans('backpack::crud.add').' '.$this->crud->entity_name;
+        $this->data['title'] = $this->crud->getTitle() ?? trans('backpack::crud.add') . ' ' . $this->crud->entity_name;
 
-        // load the view from /resources/views/vendor/hacoidev/crud/ if it exists, otherwise load the one in the package
+        // load the view from /resources/views/vendor/devcuongnguyen/crud/ if it exists, otherwise load the one in the package
         return view($this->crud->getCreateView(), $this->data);
     }
 

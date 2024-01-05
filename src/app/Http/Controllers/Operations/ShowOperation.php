@@ -15,9 +15,9 @@ trait ShowOperation
      */
     protected function setupShowRoutes($segment, $routeName, $controller)
     {
-        Route::get($segment.'/{id}/show', [
-            'as'        => $routeName.'.show',
-            'uses'      => $controller.'@show',
+        Route::get($segment . '/{id}/show', [
+            'as' => $routeName . '.show',
+            'uses' => $controller . '@show',
             'operation' => 'show',
         ]);
     }
@@ -33,7 +33,7 @@ trait ShowOperation
         $this->crud->operation('show', function () {
             $this->crud->loadDefaultOperationSettingsFromConfig();
 
-            if (! method_exists($this, 'setupShowOperation')) {
+            if (!method_exists($this, 'setupShowOperation')) {
                 $this->autoSetupShowOperation();
             }
         });
@@ -50,9 +50,9 @@ trait ShowOperation
                 },
                 'redirect' => function ($crud, $request, $itemId = null) {
                     $itemId = $itemId ?: $request->input('id');
-                    $redirectUrl = $crud->route.'/'.$itemId.'/show';
+                    $redirectUrl = $crud->route . '/' . $itemId . '/show';
                     if ($request->has('_locale')) {
-                        $redirectUrl .= '?_locale='.$request->input('_locale');
+                        $redirectUrl .= '?_locale=' . $request->input('_locale');
                     }
 
                     return $redirectUrl;
@@ -83,9 +83,9 @@ trait ShowOperation
         }
 
         $this->data['crud'] = $this->crud;
-        $this->data['title'] = $this->crud->getTitle() ?? trans('backpack::crud.preview').' '.$this->crud->entity_name;
+        $this->data['title'] = $this->crud->getTitle() ?? trans('backpack::crud.preview') . ' ' . $this->crud->entity_name;
 
-        // load the view from /resources/views/vendor/hacoidev/crud/ if it exists, otherwise load the one in the package
+        // load the view from /resources/views/vendor/devcuongnguyen/crud/ if it exists, otherwise load the one in the package
         return view($this->crud->getShowView(), $this->data);
     }
 

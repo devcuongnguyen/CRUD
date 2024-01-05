@@ -15,21 +15,21 @@ trait ListOperation
      */
     protected function setupListRoutes($segment, $routeName, $controller)
     {
-        Route::get($segment.'/', [
-            'as'        => $routeName.'.index',
-            'uses'      => $controller.'@index',
+        Route::get($segment . '/', [
+            'as' => $routeName . '.index',
+            'uses' => $controller . '@index',
             'operation' => 'list',
         ]);
 
-        Route::post($segment.'/search', [
-            'as'        => $routeName.'.search',
-            'uses'      => $controller.'@search',
+        Route::post($segment . '/search', [
+            'as' => $routeName . '.search',
+            'uses' => $controller . '@search',
             'operation' => 'list',
         ]);
 
-        Route::get($segment.'/{id}/details', [
-            'as'        => $routeName.'.showDetailsRow',
-            'uses'      => $controller.'@showDetailsRow',
+        Route::get($segment . '/{id}/details', [
+            'as' => $routeName . '.showDetailsRow',
+            'uses' => $controller . '@showDetailsRow',
             'operation' => 'list',
         ]);
     }
@@ -58,7 +58,7 @@ trait ListOperation
         $this->data['crud'] = $this->crud;
         $this->data['title'] = $this->crud->getTitle() ?? mb_ucfirst($this->crud->entity_name_plural);
 
-        // load the view from /resources/views/vendor/hacoidev/crud/ if it exists, otherwise load the one in the package
+        // load the view from /resources/views/vendor/devcuongnguyen/crud/ if it exists, otherwise load the one in the package
         return view($this->crud->getListView(), $this->data);
     }
 
@@ -115,7 +115,7 @@ trait ListOperation
         $this->data['entry'] = $this->crud->getEntry($id);
         $this->data['crud'] = $this->crud;
 
-        // load the view from /resources/views/vendor/hacoidev/crud/ if it exists, otherwise load the one in the package
+        // load the view from /resources/views/vendor/devcuongnguyen/crud/ if it exists, otherwise load the one in the package
         return view($this->crud->getDetailsRowView(), $this->data);
     }
 }

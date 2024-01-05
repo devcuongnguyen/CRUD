@@ -39,7 +39,7 @@ class AddSidebarContent extends Command
      */
     public function handle()
     {
-        $path = 'resources/views/vendor/hacoidev/base/inc/sidebar_content.blade.php';
+        $path = 'resources/views/vendor/devcuongnguyen/base/inc/sidebar_content.blade.php';
         $disk_name = config('backpack.base.root_disk_name');
         $disk = Storage::disk($disk_name);
         $code = $this->argument('code');
@@ -52,7 +52,7 @@ class AddSidebarContent extends Command
                 return $this->comment('Sidebar item already existed.');
             }
 
-            if ($disk->put($path, $contents.PHP_EOL.$code)) {
+            if ($disk->put($path, $contents . PHP_EOL . $code)) {
                 $this->info('Successfully added code to sidebar_content file.');
             } else {
                 $this->error('Could not write to sidebar_content file.');

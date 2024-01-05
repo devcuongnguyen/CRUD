@@ -38,7 +38,7 @@ trait Stats
     private function sendUsageStats()
     {
         // only send usage stats in production
-        if (! $this->runningInProduction()) {
+        if (!$this->runningInProduction()) {
             return;
         }
 
@@ -50,24 +50,24 @@ trait Stats
         $url = 'https://backpackforlaravel.com/api/stats';
         $method = 'PUT';
         $stats = [
-            'URL'                       => url('') ?? false,
-            'HTTP_HOST'                 => $_SERVER['HTTP_HOST'] ?? false,
-            'APP_URL'                   => $_SERVER['APP_URL'] ?? false,
-            'APP_ENV'                   => $this->app->environment() ?? false,
-            'APP_DEBUG'                 => $_SERVER['APP_DEBUG'] ?? false,
-            'SERVER_ADDR'               => $_SERVER['SERVER_ADDR'] ?? false,
-            'SERVER_ADMIN'              => $_SERVER['SERVER_ADMIN'] ?? false,
-            'SERVER_NAME'               => $_SERVER['SERVER_NAME'] ?? false,
-            'SERVER_PORT'               => $_SERVER['SERVER_PORT'] ?? false,
-            'SERVER_PROTOCOL'           => $_SERVER['SERVER_PROTOCOL'] ?? false,
-            'SERVER_SOFTWARE'           => $_SERVER['SERVER_SOFTWARE'] ?? false,
-            'DB_CONNECTION'             => $_SERVER['DB_CONNECTION'] ?? false,
-            'LARAVEL_VERSION'           => $this->app->version() ?? false,
-            'BACKPACK_CRUD_VERSION'     => \PackageVersions\Versions::getVersion('hacoidev/crud') ?? false,
-            'BACKPACK_PRO_VERSION'      => backpack_pro(),
-            'BACKPACK_LICENSE'          => config('backpack.base.license_code') ?? false,
-            'BACKPACK_TOKEN_USERNAME'   => config('backpack.base.token_username') ?? false,
-            'BACKPACK_URL'              => backpack_url('') ?? false,
+            'URL' => url('') ?? false,
+            'HTTP_HOST' => $_SERVER['HTTP_HOST'] ?? false,
+            'APP_URL' => $_SERVER['APP_URL'] ?? false,
+            'APP_ENV' => $this->app->environment() ?? false,
+            'APP_DEBUG' => $_SERVER['APP_DEBUG'] ?? false,
+            'SERVER_ADDR' => $_SERVER['SERVER_ADDR'] ?? false,
+            'SERVER_ADMIN' => $_SERVER['SERVER_ADMIN'] ?? false,
+            'SERVER_NAME' => $_SERVER['SERVER_NAME'] ?? false,
+            'SERVER_PORT' => $_SERVER['SERVER_PORT'] ?? false,
+            'SERVER_PROTOCOL' => $_SERVER['SERVER_PROTOCOL'] ?? false,
+            'SERVER_SOFTWARE' => $_SERVER['SERVER_SOFTWARE'] ?? false,
+            'DB_CONNECTION' => $_SERVER['DB_CONNECTION'] ?? false,
+            'LARAVEL_VERSION' => $this->app->version() ?? false,
+            'BACKPACK_CRUD_VERSION' => \PackageVersions\Versions::getVersion('devcuongnguyen/crud') ?? false,
+            'BACKPACK_PRO_VERSION' => backpack_pro(),
+            'BACKPACK_LICENSE' => config('backpack.base.license_code') ?? false,
+            'BACKPACK_TOKEN_USERNAME' => config('backpack.base.token_username') ?? false,
+            'BACKPACK_URL' => backpack_url('') ?? false,
         ];
 
         // send this info to the main website to store it in the db
@@ -91,8 +91,8 @@ trait Stats
      */
     private function makeCurlRequest($method, $url, $payload)
     {
-        $cmd = 'curl -X '.$method." -H 'Content-Type: application/json'";
-        $cmd .= " -d '".json_encode($payload)."' "."'".$url."'";
+        $cmd = 'curl -X ' . $method . " -H 'Content-Type: application/json'";
+        $cmd .= " -d '" . json_encode($payload) . "' " . "'" . $url . "'";
         $cmd .= ' > /dev/null 2>&1 &';
 
         exec($cmd, $output, $exit);
@@ -118,10 +118,10 @@ trait Stats
         try {
             $client = new \GuzzleHttp\Client();
             $res = $client->request($method, $url, [
-                'form_params'         => $payload,
-                'http_errors'         => false,
-                'connect_timeout'     => 0.5,
-                'timeout'             => 0.5,
+                'form_params' => $payload,
+                'http_errors' => false,
+                'connect_timeout' => 0.5,
+                'timeout' => 0.5,
             ]);
         } catch (\GuzzleHttp\Exception\GuzzleException $e) {
             // do nothing

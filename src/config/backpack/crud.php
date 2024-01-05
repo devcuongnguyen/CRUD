@@ -12,7 +12,7 @@ return [
     |-------------------
     */
 
-    'show_translatable_field_icon'     => true,
+    'show_translatable_field_icon' => true,
     'translatable_field_icon_position' => 'right', // left or right
 
     'locales' => [
@@ -454,16 +454,16 @@ return [
 
     'view_namespaces' => [
         'buttons' => [
-            'crud::buttons', // falls back to 'resources/views/vendor/hacoidev/crud/buttons'
+            'crud::buttons', // falls back to 'resources/views/vendor/devcuongnguyen/crud/buttons'
         ],
         'columns' => [
-            'crud::columns', // falls back to 'resources/views/vendor/hacoidev/crud/columns'
+            'crud::columns', // falls back to 'resources/views/vendor/devcuongnguyen/crud/columns'
         ],
         'fields' => [
-            'crud::fields', // falls back to 'resources/views/vendor/hacoidev/crud/fields'
+            'crud::fields', // falls back to 'resources/views/vendor/devcuongnguyen/crud/fields'
         ],
         'filters' => [
-            'crud::filters', // falls back to 'resources/views/vendor/hacoidev/crud/filters'
+            'crud::filters', // falls back to 'resources/views/vendor/devcuongnguyen/crud/filters'
         ],
     ],
 
