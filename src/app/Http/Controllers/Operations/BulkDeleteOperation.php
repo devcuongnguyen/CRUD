@@ -6,6 +6,6 @@ use Backpack\CRUD\app\Exceptions\BackpackProRequiredException;
 
 trait BulkDeleteOperation
 {
-    use \Backpack\Pro\Http\Controllers\Operations\BulkDeleteOperation;
+    use \Backpack\CRUD\app\Http\Controllers\Operations\Pro\BulkDeleteOperation;
 }
 

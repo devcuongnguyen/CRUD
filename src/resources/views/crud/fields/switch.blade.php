@@ -1,8 +1,8 @@
 {{-- switch field --}}
 @php
     $field['value'] = old_empty_or_null($field['name'], '') ?? $field['value'] ?? $field['default'] ?? '0';
-    $field['onLabel'] = $field['onLabel'] ?? '';
-    $field['offLabel'] = $field['offLabel'] ?? '';
+    $field['onLabel'] = $field['onLabel'] ?? 'ON';
+    $field['offLabel'] = $field['offLabel'] ?? 'OFF';
     $field['color'] = $field['color'] ?? 'primary';
 @endphp
 
